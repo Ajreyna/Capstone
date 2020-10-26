@@ -14,6 +14,7 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { TeacherComponent } from './teacher/teacher.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TeacherComponent } from './teacher/teacher.component';
     CounterComponent,
     FetchDataComponent,
     StudentsComponent,
-    TeacherComponent
+    TeacherComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

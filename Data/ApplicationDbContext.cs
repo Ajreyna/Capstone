@@ -17,6 +17,8 @@ namespace capstone.Data
         public IConfiguration Configuration { get; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
+
+        public DbSet<Schedule> Sales { get; set; }
         public ApplicationDbContext(
             DbContextOptions options,
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
@@ -27,5 +29,16 @@ namespace capstone.Data
         {
 
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Schedule>()
+                .HasData(
+                new Schedule { Id = 1, FirstName = "Jim", LastName = "Burns", isAvailable = true},
+                new Schedule { Id = 2, FirstName = "Mike", LastName = "Beasley", isAvailable= true },
+                new Schedule { Id = 3, FirstName = "Jerrod", LastName = "Walker", isAvailable = false });
+            base.OnModelCreating(builder);
+        }
+
     }
 }
